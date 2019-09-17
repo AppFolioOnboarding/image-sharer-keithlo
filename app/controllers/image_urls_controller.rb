@@ -17,7 +17,6 @@ class ImageUrlsController < ApplicationController
       redirect_to @image_url
     else
       render 'new'
-
     end
   end
 
