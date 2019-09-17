@@ -1,14 +1,25 @@
 <%= form_with scope: :image_url, url: image_urls_path, local: true do |form| %>
-  <p> <%= form.label :image_url %><br>
-    <%= form.text_field :title %>
-  </p>
+  <% if @image_url.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@image_url.errors.count, "error") %> prohibited
+        this image_url from being saved:
+      </h2>
+      <ul>
+        <% @image_url.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
+  <p> <%= form.label :image_url %><br>
+    <%= form.text_field :url %>
   </p>
 
   <p>
     <%= form.submit %>
   </p>
 <% end %>
+
+<%= link_to 'Back', image_urls_path %>
