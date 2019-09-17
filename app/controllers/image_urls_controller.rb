@@ -1,6 +1,6 @@
 class ImageUrlsController < ApplicationController
   def index
-    @image_urls = ImageUrl.all
+    @image_urls = ImageUrl.all.order(created_at: :desc)
   end
 
   def show
@@ -13,12 +13,9 @@ class ImageUrlsController < ApplicationController
 
   def create
     @image_url = ImageUrl.new(url_params)
-     # puts 'ddddddddddddddddd'
-     # puts @image_url.inspect
     if @image_url.save
       redirect_to @image_url
     else
-      # render does not reissue a request (link_to does)
       render 'new'
 
     end
