@@ -13,6 +13,7 @@ class ImageUrlsController < ApplicationController
 
   def create
     @image_url = ImageUrl.new(url_params)
+    puts @image_url.inspect
     if @image_url.save
       redirect_to @image_url
     else
@@ -23,6 +24,6 @@ class ImageUrlsController < ApplicationController
   private
 
   def url_params
-    params.require(:image_url).permit(:url)
+    params.require(:image_url).permit(:url, :tag_list)
   end
 end
