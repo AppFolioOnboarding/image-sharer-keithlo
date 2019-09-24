@@ -1,6 +1,8 @@
 AllCops:
   Exclude:
     - 'db/schema.rb'
+    - 'app'
+    - 'db/*'
     - 'log/**/*'
     - 'tmp/**/*'
     - 'vendor/**/*'
