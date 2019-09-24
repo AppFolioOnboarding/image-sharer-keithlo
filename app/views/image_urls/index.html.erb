@@ -4,6 +4,9 @@
   <% @image_urls.each do |image_url| %>
     <tr>
       <td> <img src=<%= image_url.url %> width="50px" height=auto /> </td>
+      <% image_url.tags.each do |tag| %>
+        <td> <%= tag %> </td>
+      <% end %>
       <td><%= link_to 'view image', image_url_path(image_url) %></td>
     </tr>
   <% end %>

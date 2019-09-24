@@ -1,6 +1,10 @@
 class ImageUrlsController < ApplicationController
   def index
-    @image_urls = ImageUrl.all.order(created_at: :desc)
+    @image_urls = if params[:tag_name].present?
+      Image.tagged_with(params[:tag_name]).order(created_at: :desc)
+    else
+      ImageUrl.all.order(created_at: :desc)
+    end
   end
 
   def show

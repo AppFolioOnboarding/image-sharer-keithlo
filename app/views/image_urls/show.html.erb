@@ -1,4 +1,7 @@
 <p> <img src= <%=  @image_url.url %> width="500px" height=auto; /> </p>
 <%=  @image_url.url %> <br/>
-<%=  @image_url.tag_list %> <br/>
+<%  @image_url.tags.each do |tag| %>
+  <h5><%= tag %></h5>
+<% end %>
+<br/>
 <%= link_to 'Back', image_urls_path %>
