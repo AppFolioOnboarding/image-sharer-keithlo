@@ -3,6 +3,8 @@ AllCops:
     - 'db/schema.rb'
   Exclude:
     - 'db/schema.rb'
+    - 'app'
+    - 'db/*'
     - 'log/**/*'
     - 'tmp/**/*'
     - 'vendor/**/*'

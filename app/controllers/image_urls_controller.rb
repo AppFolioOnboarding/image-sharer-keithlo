@@ -1,6 +1,10 @@
 class ImageUrlsController < ApplicationController
   def index
-    @image_urls = ImageUrl.all.order(created_at: :desc)
+    @image_urls = if params[:tag_name].present?
+      ImageUrl.tagged_with(params[:tag_name]).order(created_at: :desc)
+    else
+      ImageUrl.all.order(created_at: :desc)
+    end
   end
 
   def show
@@ -24,6 +28,6 @@ class ImageUrlsController < ApplicationController
   private
 
   def url_params
-    params.require(:image_url).permit(:url, :tag_list)
+    params.require(:image_url).permit(:url, :tag_list, :tag_name)
   end
 end
