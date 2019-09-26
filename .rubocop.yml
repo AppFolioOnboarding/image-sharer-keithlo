@@ -1,4 +1,6 @@
 AllCops:
+  Include:
+    - 'db/schema.rb'
   Exclude:
     - 'db/schema.rb'
     - 'log/**/*'
