@@ -17,12 +17,18 @@ class ImageUrlsController < ApplicationController
 
   def create
     @image_url = ImageUrl.new(url_params)
-    puts @image_url.inspect
     if @image_url.save
       redirect_to @image_url
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @image_url = ImageUrl.find(params[:id])
+    @image_url.destroy
+
+    redirect_to image_urls_path
   end
 
   private

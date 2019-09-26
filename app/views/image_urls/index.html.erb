@@ -4,11 +4,17 @@
   <% @image_urls.each do |image_url| %>
     <tr>
       <td> <img src=<%= image_url.url %> width="50px" height=auto /> </td>
+
       <% image_url.tags.each do |tag| %>
         <td><%= link_to tag, image_urls_path(tag_name: tag.name) %></td>
       <% end %>
-      <td><%= link_to 'view image', image_url_path(image_url) %></td>
+
+      <td><%= link_to 'Show', image_url_path(image_url) %></td>
+      <td><%= link_to 'Destroy', image_url_path(image_url),
+              method: :delete,
+              data: {confirm: 'Are you sure?'} %></td>
     </tr>
+
   <% end %>
 </table>
 
