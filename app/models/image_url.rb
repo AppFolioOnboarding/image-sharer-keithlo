@@ -3,4 +3,6 @@ class ImageUrl < ApplicationRecord
   include ActiveModel::Validations
   validates :url, presence: true
   validates :url, url: true
+
+  validates :tag_list, presence: true
 end
